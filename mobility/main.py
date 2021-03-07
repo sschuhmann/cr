@@ -45,12 +45,12 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
 
 
 
-@app.post("/cars/", response_model=schemas.Car)
-def create_user(car: schemas.CarCreate, db: Session = Depends(get_db)):
-    db_car = crud.get_
-    if db_car:
-        raise HTTPException(status_code=400, detail="License already registered")
-    return crud.create_car(db=db, car=car)
+# @app.post("/cars/", response_model=schemas.Car)
+# def create_user(car: schemas.CarCreate, db: Session = Depends(get_db)):
+#
+#     if db_car:
+#         raise HTTPException(status_code=400, detail="License already registered")
+#     return crud.create_car(db=db, car=car)
 
 
 @app.get("/demand", response_model=schemas.Demand)

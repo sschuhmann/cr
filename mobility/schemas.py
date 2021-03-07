@@ -1,11 +1,15 @@
 from pydantic import BaseModel
 from datetime import datetime
+from  mobility.models import Gender, Infotainment, Engine
 
 class UserBase(BaseModel):
     name: str
-    gender: str
+    gender: Gender
     age: int
     mail: str
+
+    class Config:
+        orm_mode=True
 
 
 class UserCreate(UserBase):
@@ -18,10 +22,13 @@ class User(BaseModel):
 
 class CarBase(BaseModel):
     model: str
-    engine: int
-    infotainment_system: int
+    engine: Engine
+    infotainment_system: Infotainment
     interior_design: int
     current_location: float
+
+    class Config:
+        orm_mode=True
 
 
 class CarCreate(CarBase):
@@ -37,6 +44,9 @@ class DemandBase(BaseModel):
     drop_off_location: float
     latest_pickup_time:  datetime
     latest_drop_off_time: datetime
+
+    class Config:
+        orm_mode=True
 
 
 class DemandCreate(DemandBase):

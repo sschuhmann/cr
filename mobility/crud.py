@@ -56,4 +56,4 @@ def create_demand(db: Session, demand: schemas.DemandCreate):
     return db_demand
 
 def get_available_cars(db: Session):
-    return db.query(models.Car).join(models.Demand).all()
+    return db.query(models.Car).join(models.Demand, isouter=True).all()
